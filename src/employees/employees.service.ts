@@ -109,6 +109,8 @@ export class EmployeeService {
     }
 
     async update(id: number, updateEmployeeDto: UpdateEmployeeDto) {
+        console.log('inside update')
+        console.log(updateEmployeeDto)
         let employee = await this.employeeRepository.findOne({
             id,
         });
