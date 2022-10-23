@@ -10,7 +10,7 @@ export class AuthService {
   constructor(
     private usersService: UserService,
     private jwtService: JwtService,
-  ) {}
+  ) { }
 
   async validateUser(username: string, pass: string): Promise<any> {
     const user = await this.usersService.findOne(username);
@@ -27,10 +27,11 @@ export class AuthService {
       const { password, ...result } = user;
 
       const payload = {
-        username: result.username,
-        sub: result.id,
-        isAdmin: result.isAdmin,
-        name: result.name,
+        user:
+        {
+          username: result.username,
+          id: result.id,
+        }
       };
 
       return {

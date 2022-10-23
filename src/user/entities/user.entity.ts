@@ -7,8 +7,6 @@ export class User {
   @Column()
   username: string;
   @Column()
-  name: string;
-  @Column()
   password: string;
   @Column()
   isAdmin: boolean;

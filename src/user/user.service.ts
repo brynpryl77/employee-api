@@ -20,7 +20,6 @@ export class UserService {
 
       const saltOrRounds = 10;
       user.password = await bcrypt.hash('1234567890', saltOrRounds);
-      user.name = 'Test Name';
       user.isAdmin = false;
       user = await this.userRepository.save(user);
       
@@ -32,7 +31,6 @@ export class UserService {
     if (!adminExists) {
       const admin = new User();
       admin.username = 'admin';
-      admin.name = 'Test Admin';
 
       const saltOrRounds = 10;
       admin.password = await bcrypt.hash('1234567890', saltOrRounds);
@@ -59,7 +57,6 @@ export class UserService {
     const saltOrRounds = 10;
     user.password = await bcrypt.hash(createUserDto.password, saltOrRounds);
     user.isAdmin = false;
-    user.name = createUserDto.name;
     user = await this.userRepository.save(user);
 
     const returnValue = new User();
